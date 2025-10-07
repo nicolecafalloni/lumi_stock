@@ -26,13 +26,13 @@
     font-family: "Roboto", sans-serif;
 }
 
-body {
+.body-dashboard {
     background-color: #e9ecef;
     color: var(--text-color);
     min-height: 100vh;
 }
 
-a {
+.a-dashboard {
     text-decoration: none;
     color: inherit;
 }
@@ -406,12 +406,58 @@ a {
     height: 100vh;
 }
 
+.body-cadastro {
+    background-image: url('../img/fundo-cadastro.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .container {
     display: flex;
     border-radius: 10px;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+}
+
+.left-panel-cadastro {
+    width: 57%;
+    color: #004aad;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+}
+
+.left-panel-cadastro h2 {
+    font-size: 40px;
+    color: #004aad;
+    margin-bottom: 20px;
+}
+
+.right-panel-cadastro {
+    width: 43%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+}
+
+.right-panel-cadastro h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.right-panel-cadastro p {
+    font-size: 16px;
+    margin-bottom: 30px;
 }
 
 .left-panel {
@@ -426,12 +472,12 @@ a {
 }
 
 .logo-login {
-    width: 300px;
-    margin-bottom: 20px;
+    width: 400px;
+    margin-bottom: 30px;
 }
 
 .left-panel h1 {
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 10px;
 }
 

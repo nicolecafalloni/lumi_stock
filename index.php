@@ -13,13 +13,13 @@
     <div class="container">
         <div class="left-panel">
             <img class="logo-login" src="./img/logo-lumistock.png" alt="">
-            <h1>Bem-vindo de volta!</h1>
-            <p>Para se manter conectado conosco, forneça suas informações pessoais</p>
-            <a href="./php/login.php"><button class="btn-outline">Entrar</button></a>
+            <h1>Criar uma conta</h1>
+            <p>Se você ainda não possui uma conta, cadastre-se clicando no botão abaixo</p>
+            <a href="./php/cadastro.php"><button class="btn-outline">Criar conta</button></a>
         </div>
 
         <div class="right-panel">
-            <h2>Criar Conta</h2>
+            <h2>Acessar sua conta</h2>
             <div class="social-icons">
                 <div class="icon">
                     <img class="img-icon-facebook" src="./img/icon-facebook.png" alt="">
@@ -32,13 +32,7 @@
                 </div>
             </div>
 
-            <form>
-                <div class="input-group">
-                    <div class="icon-input">
-                        <img class="img-input-user" src="./img/icon-usuario.png" alt="">
-                    </div>
-                    <input type="text" name="nome" placeholder="Nome" required>
-                </div>
+            <form action="" method="post">
 
                 <div class="input-group">
                     <div class="icon-input">
@@ -54,7 +48,7 @@
                     <input type="password" name="senha" placeholder="Senha" required>
                 </div>
 
-                <button type="submit" class="btn-primary">Cadastre-se</button>
+                <input type="submit" class="btn-primary" value= "Acessar sua conta">
             </form>
         </div>
     </div>
