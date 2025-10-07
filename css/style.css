@@ -1,4 +1,396 @@
-*{
-    padding: 0;
+/* Importação da fonte (opcional, mas recomendado) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,500,700&display=swap");
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #004AAD; /* Azul vibrante (sidebar) */
+    --secondary-color: #f8f9fa; /* Fundo do conteúdo principal */--tertiary-color: rgb(72, 72, 72);
+    --text-color: #333;
+    --light-text: #fff;
+    --menu-hover: #0a6bd2;
+    --card-bg: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+
+    /* Cores dos cartões de estatísticas */
+    --stat-low-stock-color: #ffc107; /* Amarelo */
+    --stat-product-qty-color: #17a2b8; /* Ciano */
+    --stat-total-cost-color: #28a745; /* Verde */
+}
+
+/* Reset Básico */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #e9ecef;
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* LAYOUT PRINCIPAL (Desktop) */
+.container {
+    min-height: 100vh;
+}
+
+/* --- BARRA LATERAL (Sidebar) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh; 
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 20px 0;
+    flex-shrink: 0; 
+    display: flex; 
+    flex-direction: column;
+    overflow-y: hidden; 
+    z-index: 1000; 
+}
+
+.logo {
+    padding: 0 20px 30px 20px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Perfil do Usuário */
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: var(--light-text); /* Placeholder visual */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.user-email {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Menu de Navegação */
+.nav-menu{
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 20px; 
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.nav-menu li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+
+.nav-menu li a:hover {
+    background-color: var(--menu-hover);
+    border-radius: 0 50px 50px 0; /* Borda arredondada no lado direito */
+    color: var(--light-text);
+}
+
+.nav-menu li.active {
+    border-left: 5px solid white; /* Destaque sutil na lateral esquerda */
+}
+
+.nav-menu li.active a {
+    background-color: var(--card-bg);
+    color: var(--primary-color); 
+    border-radius: 0 50px 50px 0; 
+    font-weight: 700;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu li.active a i{
+    color: var(--primary-color);
+}
+
+.nav-menu li.active a:hover{
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+}
+
+/* Botão Sair */
+.logout-btn {
+    margin-top: auto; /* Empurra para o final da barra lateral */
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-btn a {
+    display: flex;
+    align-items: center;
+    color: var(--light-text);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.logout-btn a:hover {
+    opacity: 1;
+}
+
+/* --- CONTEÚDO PRINCIPAL (Main Content) --- */
+.main-content {
+    margin-left: 280px; 
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--secondary-color);
+}
+
+.main-content h1,
+.main-content h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.main-content h1 {
+    font-size: 2.2rem;
+}
+
+/* --- Cartões Comuns (Cards) --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+/* --- Cartões de Estatísticas --- */
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    padding: 25px;
+    border-left: 5px solid;
+}
+
+.card-low-stock {
+    border-color: var(--stat-low-stock-color);
+}
+.card-product-qty {
+    border-color: var(--stat-product-qty-color);
+}
+.card-total-cost {
+    border-color: var(--stat-total-cost-color);
+}
+
+.stat-card .card-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.stat-card .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-card .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.stat-card .stat-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.stat-card-low-stock .stat-icon {
+    color: var(--stat-low-stock-color);
+}
+.stat-card-product-qty .stat-icon {
+    color: var(--stat-product-qty-color);
+}
+.stat-card-total-cost .stat-icon {
+    color: var(--stat-total-cost-color);
+}
+
+.stat-card-total-cost .card-content {
+    align-items: flex-start;
+}
+
+.stat-card-total-cost .currency {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-right: 5px;
+    align-self: flex-end;
+}
+
+.stat-card-total-cost .currency-symbol {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-left: 5px;
+    align-self: flex-end;
+}
+
+/* --- Cartões de Atalhos --- */
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.shortcut-card {
+    text-align: center;
+    padding: 30px 20px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shortcut-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.shortcut-icon {
+    font-size: 3rem;
+    color: var(--tertiary-color);
+    margin-bottom: 15px;
+}
+
+.shortcut-title {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 20px;
+    width: 150px;
+    padding: 6px;
+}
+
+.shortcut-description {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #6c757d;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* -------------------------------------- */
+/* --- RESPONSIVIDADE (Media Queries) --- */
+/* -------------------------------------- */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+    .stat-cards {
+        grid-template-columns: 1fr; /* Cartões empilhados */
+        gap: 20px;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dois atalhos por linha */
+        gap: 20px;
+    }
+
+    .shortcut-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Telas Pequenas (Celulares) */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column; /* Sidebar no topo */
+    }
+
+    /* Esconde a sidebar e mostra um botão de menu (Hamburger) */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        display: none; /* Inicia escondida no mobile */
+        position: absolute;
+        z-index: 1000;
+    }
+
+    .shortcut-card {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Adiciona um botão de menu (Hamburger) no topo do main-content */
+    .main-content {
+        padding: 20px;
+    }
+
+    /* Adapta o perfil no mobile */
+    .user-profile {
+        padding: 10px 20px;
+    }
+
+    /* Adapta o menu no mobile */
+    .nav-menu li a {
+        border-radius: 0;
+    }
+
+    /* Mostra a sidebar (será controlada pelo JavaScript) */
+    .sidebar.open {
+        display: flex;
+    }
 }
