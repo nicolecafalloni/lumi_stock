@@ -25,7 +25,7 @@
             </nav>
 
             <div class="logout-btn">
-                <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
             </div>
         </aside>
     <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->

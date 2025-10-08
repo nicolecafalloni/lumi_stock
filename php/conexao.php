@@ -1,14 +1,14 @@
 <?php
-$servidor = "localhost";
-$usuario  = "root";
-$senha    = "";
-$banco    = "lumistock";
+    $servidor = "localhost";
+    $usuario  = "root";
+    $senha    = "";
+    $banco    = "lumistock";
 
-$conexao = new mysqli($servidor, $usuario, $senha, $banco);
+    $conexao = new mysqli($servidor, $usuario, $senha, $banco);
 
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
-}
+    if ($conexao->connect_error) {
+        die("Falha na conexão: " . $conexao->connect_error);
+    }
 
-echo "Conectado com sucesso!";
+    echo "<script>console.log(Conectado com sucesso!)</script>";
 ?>
