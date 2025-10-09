@@ -1,3 +1,44 @@
+<?php
+include './php/conexao.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = 'SELECT id, senha FROM users WHERE email = ?';
+    $stmt = $conexao->prepare($sql);
+    
+    if ($stmt === false) {
+        die("Erro ao preparar statement: " . $conexao->error);
+    }
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows > 0) {
+        $usuario = $resultado->fetch_assoc();
+
+        if (!password_verify($senha, $usuario['senha'])) {
+            echo "
+            <script>
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+                });
+            </script>";
+        } else {
+            header("Location: ./php/dashboard.php");
+            exit();
+        }
+    }
+    $stmt->close();
+    $conexao->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +48,7 @@
     <title>Login - LumiStock</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="body-login">

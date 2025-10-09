@@ -1,5 +1,5 @@
 <?php
-
+include_once 'conexao.php';
 // Arquivo: dashboard.php
 
 // 1. INCLUSÃO DE CONFIGURAÇÕES E CONEXÃO COM O BANCO DE DADOS
