@@ -3,7 +3,7 @@ include_once 'conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = $_POST['nome'];
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error preparing statement: " . $conexao->error);
     }
 
-    $stmt->bind_param("sss", $name, $email, $senhaHash);
+    $stmt->bind_param("sss", $nome, $email, $senhaHash);
 
     if ($stmt->execute()) {
         header("Location: dashboard.php");
@@ -40,6 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Cadastro - LumiStock</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/main.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body class="body-cadastro">

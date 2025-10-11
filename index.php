@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './php/conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,20 +21,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
 
-        if (!password_verify($senha, $usuario['senha'])) {
-            echo "
-            <script>
-                Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!'
-                });
-            </script>";
-        } else {
+        if (password_verify($senha, $usuario['senha'])) {
+            $_SESSION['logado'] = true;
+
             header("Location: ./php/dashboard.php");
             exit();
+        } else {
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Senha incorreta',
+                        text: 'Por favor, tente novamente.'
+                    });
+                  </script>";
         }
+    } else {
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuário não encontrado',
+                    text: 'Verifique o email digitado.'
+                });
+              </script>";
     }
+
     $stmt->close();
     $conexao->close();
 }

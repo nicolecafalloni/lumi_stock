@@ -1,5 +1,7 @@
 <?php
-include_once 'conexao.php';
+include 'conexao.php';
+include 'verifica_sessao.php';
+
 // Arquivo: dashboard.php
 
 // 1. INCLUSÃO DE CONFIGURAÇÕES E CONEXÃO COM O BANCO DE DADOS
