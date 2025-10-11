@@ -9,40 +9,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (nome, email, senha) VALUES (?, ?, ?)";
-    $stmt = $conexao->prepare($sql);
-    
-    if ($stmt === false) {
-        die("Error preparing statement: " . $conexao->error);
-    }
+    $verifica = $conexao->prepare("SELECT id FROM users WHERE email = ?");
+    $verifica->bind_param("s", $email);
+    $verifica->execute();
+    $verifica->store_result();
 
-    $stmt->bind_param("sss", $nome, $email, $senhaHash);
-
-    if ($stmt->execute()) {
-        header("Location: dashboard.php");
+    if ($verifica->num_rows > 0) {
+        echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+        window.onload = function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'E-mail já cadastrado!',
+                text: 'Por favor, use outro endereço de e-mail.',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#d33'
+            }).then(() => {
+                window.location.href = '../index.php';
+            });
+        };
+        </script>
+        ";
         exit();
     } else {
-        echo "Error: " . $stmt->error;
+
+        $sql = "INSERT INTO users (nome, email, senha) VALUES (?, ?, ?)";
+        $stmt = $conexao->prepare($sql);
+        
+        if ($stmt === false) {
+            die("Error preparing statement: " . $conexao->error);
+        }
+    
+        $stmt->bind_param("sss", $nome, $email, $senhaHash);
+    
+    
+        if ($stmt->execute()) {
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            window.onload = function() {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'O registro foi salvo com sucesso!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
+                }).then(() => {
+                    window.location.href = '../index.php';
+                });
+            };
+            </script>
+            ";
+        } else {
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro!',
+                    text: 'Ocorreu um erro ao salvar o registro.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33'
+                });
+            };
+            </script>
+            ";
+        }
+        $stmt->close();
     }
 
-    $stmt->close();
+    $verifica->close();
     $conexao->close();
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - LumiStock</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/main.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body class="body-cadastro">
@@ -89,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="right-panel-cadastro">
             <img class="logo-login" src="../img/logo-lumistock.png" alt="">
             <h1>Acessar sua conta</h1>
-            <p>Para se manter conectado conosco, forneça suas informações pessoais</p>
+            <center><p>Para se manter conectado conosco, forneça suas informações pessoais</p></center>
             <a href="../index.php"><button class="btn-outline">Entrar</button></a>
         </div>
     </div>

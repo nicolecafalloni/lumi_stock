@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="left-panel">
             <img class="logo-login" src="./img/logo-lumistock.png" alt="">
             <h1>Criar uma conta</h1>
-            <p>Se você ainda não possui uma conta, cadastre-se clicando no botão abaixo</p>
+            <center><p>Se você ainda não possui uma conta, cadastre-se clicando no botão abaixo</p></center>
             <a href="./php/cadastro.php"><button class="btn-outline">Criar conta</button></a>
         </div>
 
