@@ -121,59 +121,68 @@ function fmtMoney($v) {
     <link rel="stylesheet" href="../css/style_relatorios.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
 </head>
 <body id="rel-body">
     <div class="container-relatorio">
 
 <?php include 'sidebar.php'; ?>
-<header id="rel-header">
+<header id="rel-header" class="rel-header-blue">
     <div class="rel-header-container">
-        <div>
-            <h1>Relatórios de Estoque</h1>
-            <p class="rel-subtitle">Visualize e exporte relatórios detalhados do seu estoque</p>
+        <div class="rel-header-left">
+            <img src="https://cdn-user-icons.flaticon.com/201298/201298730/1760366393715.svg?token=exp=1760367420~hmac=9a5130287315fb56c4dcae0564422578" alt="">
+            <div>
+                <h1>Relatórios de Estoque</h1>
+                <p class="rel-subtitle">Visualize e exporte relatórios detalhados do seu estoque</p>
+            </div>
         </div>
-        <div class="rel-realtime">📈 Análises em Tempo Real</div>
     </div>
 </header>
+
 
 <main id="rel-main" class="rel-container">
     <!-- FILTROS -->
     <section id="rel-filtros" class="rel-card">
-        <h2>Filtros do Relatório</h2>
-        <form id="rel-form" method="post" class="rel-filtros-form">
-            <div class="rel-row">
-                <div class="rel-field">
-                    <label for="tipoRelatorio">Tipo de Relatório *</label>
-                    <select id="tipoRelatorio" name="tipoRelatorio" required>
-                        <option value="produtos">Produtos<option>
-                        <option value="movimentacoes">Movimentações</option>
-                    </select>
-                </div>
+        <div class="rel-filter-content">
+            <h2>Filtros do Relatório</h2>
+            <form id="rel-form" method="post" class="rel-filtros-form">
+                <div class="rel-row">
+                    <div class="rel-field">
+                        <label for="tipoRelatorio">Tipo de Relatório *</label>
+                        <select id="tipoRelatorio" name="tipoRelatorio" required>
+                            <option value="produtos">Produtos<option>
+                            <option value="movimentacoes">Movimentações</option>
+                        </select>
+                    </div>
 
-                <div class="rel-field">
-                    <label for="categoria">Categoria</label>
-                    <select id="categoria" name="categoria">
-                        <option value="todas">Todas</option>
-                        <option value="eletronicos">Eletrônicos</option>
-                        <option value="escritorio">Escritório</option>
-                    </select>
-                </div>
+                    <div class="rel-field">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria" name="categoria">
+                            <option value="todas">Todas</option>
+                            <option value="eletronicos">Eletrônicos</option>
+                            <option value="escritorio">Escritório</option>
+                        </select>
+                    </div>
 
-                <div class="rel-field">
-                    <label for="dataInicial">Data Inicial</label>
-                    <input type="date" id="dataInicial" name="dataInicial">
-                </div>
+                    <div class="rel-field">
+                        <label for="dataInicial">Data Inicial</label>
+                        <input type="date" id="dataInicial" name="dataInicial">
+                    </div>
 
-                <div class="rel-field">
-                    <label for="dataFinal">Data Final</label>
-                    <input type="date" id="dataFinal" name="dataFinal">
-                </div>
+                    <div class="rel-field">
+                        <label for="dataFinal">Data Final</label>
+                        <input type="date" id="dataFinal" name="dataFinal">
+                    </div>
 
-                <div class="rel-field rel-field-button">
-                    <button type="submit" id="rel-btn-gerar" class="rel-btn">Filtrar Relatório</button>
+                    <div class="rel-field rel-field-button">
+                        <button type="submit" id="rel-btn-gerar" class="rel-btn">Filtrar Relatório</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </section>
 
     <?php if (!$relatorioGerado): ?>

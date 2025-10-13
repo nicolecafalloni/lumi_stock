@@ -74,3 +74,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.getElementById('rel-export-xlsx').addEventListener('click', () => {
+    const table = document.querySelector('.rel-table');
+    const wb = XLSX.utils.table_to_book(table, { sheet: "Relatório" });
+    XLSX.writeFile(wb, 'relatorio_estoque.xlsx');
+});
+
+document.getElementById('rel-export-pdf').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text("Relatório de Estoque", 14, 15);
+    doc.autoTable({ 
+        html: '.rel-table',
+        startY: 25,
+        theme: 'grid'
+    });
+    
+    doc.save('relatorio_estoque.pdf');
+});
+
+document.getElementById('rel-print').addEventListener('click', () => {
+    window.print();
+});

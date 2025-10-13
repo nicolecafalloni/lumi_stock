@@ -4,30 +4,68 @@
 #rel-body { font-family: Inter, Arial, sans-serif; background:#f4f6fa; color:#222; margin:0; padding:0; }
 
 /* header */
-#rel-header { 
-    background: linear-gradient(90deg,#004aad,#0066fe); 
-    color:#fff; padding:18px 0; 
-    box-shadow:0 2px 6px rgba(0,0,0,0.06); 
-    height: 203px; 
-    display: flex; 
+/* Header azul */
+.rel-header-blue {
+    background: linear-gradient(to right, #004aad, #0066fe); /* azul do exemplo */
+    color: #fff;
+    padding: 20px 40px;
+    height: 202px;;
+    display: flex;
 }
 
-.rel-header-container { 
-    width:92%; margin:0 auto; 
-    display:flex; 
-    justify-content:space-between; 
-    align-items:center; 
+.rel-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.rel-header-container h1 { 
-    margin:0; 
-    font-size:1.4rem; 
+.rel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.rel-subtitle { 
-    margin:4px 0 0; 
-    font-size:0.9rem; 
-    opacity:0.95; 
+.rel-header-icon {
+    font-size: 36px;
+}
+
+.rel-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rel-header .rel-subtitle {
+    margin: 2px 0 0 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.rel-header-btn {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.rel-header-btn:hover {
+    background-color: rgba(255,255,255,0.25);
+}
+
+
+.rel-filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
 }
 
 .rel-realtime { 
@@ -81,13 +119,23 @@
 }
 
 .rel-btn { 
-    background:#0b63d6; 
+    background:#004aad; 
     color:#fff; 
     padding:10px 18px; 
     border-radius:8px; 
     border:none; 
     cursor:pointer; 
     font-weight:600; 
+}
+
+.rel-header-left img{
+    height: 67px;
+}
+
+.rel-export-title {
+    font-size: 22px;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .rel-btn:hover { 
@@ -172,12 +220,28 @@
      gap:8px; 
 }
 
-.rel-btn-outline { 
-    background:transparent; 
-    border:1px solid #d0e8ff; 
-    padding:8px 12px; 
-    border-radius:8px; 
-    color:#0b63d6; 
+.rel-btn-outline {
+    background: transparent;
+    border: 2px solid #004AAD;
+    padding: 12px;
+    border-radius: 8px;
+    color: #004AAD;
+}
+
+.rel-btn-success {
+    background: white !important;
+    color: #46ae60 !important;
+    border: 2px solid #46ae60 !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+}
+
+.rel-btn-ghost {
+    background: white !important;
+    color: #696969 !important;
+    border: 2px solid #696969 !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
 }
 
 .rel-card-content{
