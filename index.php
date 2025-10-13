@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login - LumiStock</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
+    <link rel="icon" type="image/jpg" href="img/icon-logo.jpg">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
 </head>
