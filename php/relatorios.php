@@ -121,6 +121,8 @@ function fmtMoney($v) {
     <link rel="stylesheet" href="../css/style_relatorios.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
@@ -188,7 +190,7 @@ function fmtMoney($v) {
     <?php if (!$relatorioGerado): ?>
         <!-- MENSAGEM INICIAL: aparece quando NÃO foi gerado relatório -->
         <section id="rel-mensagem-inicial" class="rel-card rel-info-box">
-            <div class="rel-info-icon">📄</div>
+            <div class="rel-info-icon"></div>
             <div class="rel-info-text">
                 <strong>Selecione os filtros desejados e clique em "Gerar Relatório" para visualizar os dados.</strong>
             </div>

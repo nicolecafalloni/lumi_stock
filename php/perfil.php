@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Perfil - LumiStock</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
 </head>
 <body>
 <div class="container">

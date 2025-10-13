@@ -117,40 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/cadastrar_produtos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <aside class="sidebar">
-            <div class="logo">
-                <span class="logo-text">LumiStock</span>
-            </div>
-
-            <div class="user-profile">
-                <img src="placeholder-avatar.png" alt="Avatar de Kevin" class="avatar">
-                <div class="user-info">
-                    <span class="user-name">Kevin</span>
-                    <span class="user-email">kevin.03@gmail.com</span>
-                </div>
-            </div>
-
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="dashboard.php"><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="produtos.php"><i class="fas fa-box"></i> Produtos</a></li>
-                    <li class="active"><a href="cadastrar_produto.php"><i class="fas fa-plus-circle"></i> Cadastrar Produto</a></li>
-                    <li><a href="movimentacoes.php"><i class="fas fa-exchange-alt"></i> Movimentações</a></li>
-                    <li><a href="relatorios.php"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
-                    <li><a href="clientes.php"><i class="fas fa-users"></i> Clientes</a></li>
-                    <li><a href="fornecedores.php"><i class="fas fa-truck"></i> Fornecedores</a></li>
-                    <li><a href="perfil.php"><i class="fas fa-user-circle"></i> Perfil</a></li>
-                </ul>
-            </nav>
-
-            <div class="logout-btn">
-                <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
-            </div>
-        </aside>
+    <?php include 'sidebar.php'; ?>
     <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
     <script>
         (function(){

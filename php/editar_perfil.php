@@ -47,6 +47,7 @@ $usuario = $resultado->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Editar Perfil - LumiStock</title>
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>

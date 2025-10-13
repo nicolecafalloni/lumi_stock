@@ -24,8 +24,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             <li><a href="cadastrar_produto.php"><i class="fas fa-plus-circle"></i> Cadastrar Produto</a></li>
             <li><a href="movimentacoes.php"><i class="fas fa-exchange-alt"></i> Movimentações</a></li>
             <li><a href="relatorios.php"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
-            <li><a href="clientes.php"><i class="fas fa-users"></i> Clientes</a></li>
-            <li><a href="fornecedores.php"><i class="fas fa-truck"></i> Fornecedores</a></li>
             <li><a href="perfil.php"><i class="fas fa-user-circle"></i> Perfil</a></li>
         </ul>
     </nav>
