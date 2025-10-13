@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/10/2025 às 01:39
+-- Tempo de geração: 13/10/2025 às 16:05
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `lumistock`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL,
+  `sku` varchar(50) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `quantidade` int(11) NOT NULL DEFAULT 0,
+  `preco` decimal(10,2) NOT NULL,
+  `data_cadastro` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `sku`, `nome`, `categoria`, `quantidade`, `preco`, `data_cadastro`) VALUES
+(1, 'PROD001', 'Teclado Mecânico', 'eletronicos', 15, 299.90, '2025-10-13'),
+(2, 'PROD002', 'Mouse Mecânico', 'eletronicos', 45, 229.90, '2025-10-13'),
+(5, 'PROD003', 'Cadeira Executiva', 'escritorio', 20, 499.90, '2025-10-13');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `relatorios`
+--
+
+CREATE TABLE `relatorios` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(50) NOT NULL,
+  `categoria` varchar(100) DEFAULT 'todas',
+  `data_inicial` date DEFAULT NULL,
+  `data_final` date DEFAULT NULL,
+  `total_produtos` int(11) DEFAULT 0,
+  `baixo_estoque` int(11) DEFAULT 0,
+  `valor_total` decimal(12,2) DEFAULT 0.00,
+  `unidades_totais` int(11) DEFAULT 0,
+  `data_geracao` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -46,6 +91,19 @@ INSERT INTO `users` (`id`, `nome`, `email`, `senha`) VALUES
 --
 
 --
+-- Índices de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `sku` (`sku`);
+
+--
+-- Índices de tabela `relatorios`
+--
+ALTER TABLE `relatorios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `users`
 --
 ALTER TABLE `users`
@@ -54,6 +112,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `relatorios`
+--
+ALTER TABLE `relatorios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `users`
