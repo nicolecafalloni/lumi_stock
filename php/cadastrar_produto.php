@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<<<<<<< HEAD
+
    <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -157,9 +157,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
 </aside>
-=======
+
     <?php include 'sidebar.php'; ?>
->>>>>>> 9d632549a1c9aa3c5a9cf79e0e425305195cbaac
+
     <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
     <script>
         (function(){
