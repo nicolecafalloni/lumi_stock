@@ -23,7 +23,12 @@ $quantidadeBaixoEstoque = $baixoEstoque['baixo_estoque'] ?? 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>LumiStock - Dashboard Profissional</title>
+=======
+    <title>LumiStock - Gerenciamento de Estoque</title>
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
+>>>>>>> 9d632549a1c9aa3c5a9cf79e0e425305195cbaac
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -189,9 +194,15 @@ $quantidadeBaixoEstoque = $baixoEstoque['baixo_estoque'] ?? 0;
                 </div>
 
                 <div class="card shortcut-card card-reports">
+<<<<<<< HEAD
                     <i class="fas fa-clipboard-list"></i>
                     <a href="relatorios.php">Relatórios</a>
                     <p class="shortcut-description">Visualizar relatórios completos do estoque</p>
+=======
+                    <i class="fas fa-clipboard-list shortcut-icon"></i>
+                    <a class="a-dashboard" class="shortcut-title" href="relatorios.php">Relatórios</a>
+                    <p class="shortcut-description">Relatórios</p>
+>>>>>>> 9d632549a1c9aa3c5a9cf79e0e425305195cbaac
                 </div>
             </section>
 

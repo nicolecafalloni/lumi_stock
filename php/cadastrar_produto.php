@@ -117,10 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/cadastrar_produtos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+<<<<<<< HEAD
    <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -155,6 +157,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
 </aside>
+=======
+    <?php include 'sidebar.php'; ?>
+>>>>>>> 9d632549a1c9aa3c5a9cf79e0e425305195cbaac
     <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
     <script>
         (function(){
@@ -248,7 +253,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <label class="labels-form-group" for="categoria">Categoria</label>
                 <select id="categoria" name="categoria" required>
                     <option value="" disabled selected>Selecione uma categoria</option>
-                    <option>Outros</option>
                     <option>Eletrônicos</option>
                     <option>Escritório</option>
                 </select>
