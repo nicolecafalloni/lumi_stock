@@ -3,13 +3,12 @@ session_start();
 include './php/conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = 'SELECT id, email, senha FROM users WHERE email = ?';
+    $sql = 'SELECT id, nome, email, senha FROM users WHERE email = ?';
     $stmt = $conexao->prepare($sql);
-    
+
     if ($stmt === false) {
         die("Erro ao preparar statement: " . $conexao->error);
     }
@@ -23,34 +22,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($senha, $usuario['senha'])) {
             $_SESSION['logado'] = true;
-            $_SESSION['email'] = $usuario['email']; 
             $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['email'] = $usuario['email'];
 
             header("Location: ./php/dashboard.php");
             exit();
         } else {
             echo "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Senha incorreta',
-                        text: 'Por favor, tente novamente.'
-                    });
-                  </script>";
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Senha incorreta',
+                    text: 'Por favor, tente novamente.'
+                });
+            </script>";
         }
     } else {
         echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Usuário não encontrado',
-                    text: 'Verifique o email digitado.'
-                });
-              </script>";
+            Swal.fire({
+                icon: 'error',
+                title: 'Usuário não encontrado',
+                text: 'Verifique o email digitado.'
+            });
+        </script>";
     }
 
     $stmt->close();
     $conexao->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
