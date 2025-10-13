@@ -216,7 +216,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="labels-form-group" for="categoria">Categoria</label>
                 <select id="categoria" name="categoria" required>
                     <option value="" disabled selected>Selecione uma categoria</option>
-                    <option>Outros</option>
                     <option>Eletrônicos</option>
                     <option>Periféricos</option>
                     <option>Hardware</option>

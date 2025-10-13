@@ -165,6 +165,8 @@ function fmtMoney($v) {
                         <select id="categoria" name="categoria">
                             <option value="todas">Todas</option>
                             <option value="eletronicos">Eletrônicos</option>
+                            <option value="perifericos">Periféricos</option>
+                            <option value="hardware">Hardware</option>
                             <option value="escritorio">Escritório</option>
                         </select>
                     </div>

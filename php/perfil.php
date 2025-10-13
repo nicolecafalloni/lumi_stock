@@ -3,7 +3,7 @@ session_start();
 include 'conexao.php';
 
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Perfil - LumiStock</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
 </head>
 <body>
@@ -118,7 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li>Registrar movimentações</li>
                         <li>Excluir movimentações</li>
                         <li>Gerar relatórios</li>
-                        <li>Gerenciar usuários</li>
                     </ul>
                 </div>
 
@@ -133,5 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 </div>
+<script src="../js/script.js" ></script>
 </body>
 </html>

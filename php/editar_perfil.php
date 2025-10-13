@@ -48,6 +48,7 @@ $usuario = $resultado->fetch_assoc();
     <meta charset="UTF-8">
     <title>Editar Perfil - LumiStock</title>
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -104,29 +105,6 @@ $usuario = $resultado->fetch_assoc();
         </div>
     </form>
 </div>
-
-
-                <div class="card-editar-perfil seguranca-conta-editar-perfil">
-                    <h2>Alterar Senha</h2>
-                    <form method="POST">
-                        <label>Nova Senha *</label>
-                        <input type="password" name="nova_senha" minlength="6" required>
-
-                        <label>Confirmar Nova Senha *</label>
-                        <input type="password" name="confirmar_senha" minlength="6" required>
-
-                        <button type="submit" name="atualizar_senha" class="btn-primary-editar-perfil">Atualizar Senha</button>
-                    </form>
-                    <div class="dicas-senha-editar-perfil">
-                        <p><strong>Dicas de segurança:</strong></p>
-                        <ul>
-                            <li>Use pelo menos 6 caracteres</li>
-                            <li>Combine letras, números e símbolos</li>
-                            <li>Não use informações pessoais óbvias</li>
-                            <li>Troque sua senha regularmente</li>
-                        </ul>
-                    </div>
-                </div>
 
             </div>
 

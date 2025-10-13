@@ -99,18 +99,6 @@ $custoFormatado = number_format($dadosEstoque['custo_total_produtos'], 2, ',', '
                     <a class="a-dashboard" class="shortcut-title" href="relatorios.php">Relatórios</a>
                     <p class="shortcut-description">Relatórios</p>
                 </div>
-
-                <div class="card shortcut-card card-clients">
-                    <i class="fas fa-users shortcut-icon"></i>
-                    <a class="a-dashboard" class="shortcut-title" href="clientes.php">Clientes</a>
-                    <p class="shortcut-description">Cadastro de clientes</p>
-                </div>
-
-                <div class="card shortcut-card card-suppliers">
-                    <i class="fas fa-user-tie shortcut-icon"></i>
-                    <a class="a-dashboard" class="shortcut-title" href="fornecedores.php">Fornecedores</a>
-                    <p class="shortcut-description">Cadastre de fornecedores</p>
-                </div>
             </section>
         </main>
     </div>
