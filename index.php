@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = 'SELECT id, senha FROM users WHERE email = ?';
+    $sql = 'SELECT id, email, senha FROM users WHERE email = ?';
     $stmt = $conexao->prepare($sql);
     
     if ($stmt === false) {
@@ -23,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($senha, $usuario['senha'])) {
             $_SESSION['logado'] = true;
+            $_SESSION['email'] = $usuario['email']; 
+            $_SESSION['id'] = $usuario['id'];
 
             header("Location: ./php/dashboard.php");
             exit();
