@@ -76,11 +76,19 @@ $usuario = $resultado->fetch_assoc();
     <form method="POST" action="editar_perfil.php">
         <!-- Foto de Perfil -->
         <label>Foto de Perfil</label>
-        <div class="perfil-avatar-editar-perfil">
+        <div class="perfil-foto-editar-perfil">
+    <div class="perfil-avatar-editar-perfil">
+        <?php if (!empty($usuario['imagem_perfil'])): ?>
+            <img src="../uploads/<?= htmlspecialchars($usuario['imagem_perfil']); ?>" alt="Foto de perfil" class="avatar-img">
+        <?php else: ?>
             <span><?= strtoupper(substr($usuario['nome'], 0, 2)); ?></span>
-            <span class="status-editar-perfil"></span>
-        </div>
-        <button type="button" class="btn-secondary-editar-perfil">Trocar Foto</button>
+        <?php endif; ?>
+        <span class="status-editar-perfil"></span>
+    </div>
+
+    <input type="file" name="imagem" class="input-foto-editar-perfil" accept="image/*">
+    <button type="submit" name="atualizar_imagem" class="btn-secondary-editar-perfil">Trocar Foto</button>
+</div>
 
         <label>Nome Completo *</label>
         <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome']); ?>" required>
