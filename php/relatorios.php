@@ -287,6 +287,7 @@ const REL_TOP_PRODUTOS = <?= json_encode($topProdutos, JSON_HEX_TAG|JSON_HEX_APO
 </script>
 
 <script src="../js/script_relatorios.js"></script>
+<script src="../js/script.js"></script>
 </div>
 </body>
 </html>
