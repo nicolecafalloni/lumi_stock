@@ -191,55 +191,71 @@
     font-weight: 700;
 }
 
-/* ======== BOTÃO HAMBÚRGUER ======== */
+/* ==== BOTÃO HAMBÚRGUER ==== */
 .hamburger {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    width: 44px;
-    height: 44px;
-    background: var(--primary-color);
-    color: var(--light-text);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 1101; /* acima da sidebar */
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
+  display: block;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background: var(--primary-color);
+  color: #ecf0f1;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  z-index: 1003;
 }
 
-/* ======== MOBILE ======== */
-@media (max-width: 719px) {
-    /* Mostra o botão no mobile */
-    .hamburger {
-        display: flex;
-    }
-
-    /* Esconde a sidebar fora da tela */
-    .sidebar {
-        transform: translateX(-100%);
-        box-shadow: none;
-    }
-
-    /* Quando o menu estiver ativo */
-    .sidebar.active {
-        transform: translateX(0);
-        box-shadow: 4px 0 20px rgba(0,0,0,0.25);
-    }
-
-    /* Impede o conteúdo de sumir */
-    .main-content {
-        margin-left: 0;
-        transition: margin 0.3s ease-in-out;
-    }
-
-    /* Impede rolagem quando o menu estiver aberto */
-    body.menu-open {
-        overflow: hidden;
-    }
+.hamburger:hover {
+  background: #215191;
 }
+
+/* ==== SIDEBAR ==== */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--primary-color); /* fundo da sidebar */
+  color: #ecf0f1; /* cor do texto */
+  position: fixed;
+  top: 0;
+  left: 0; /* garante que fique na borda esquerda */
+  transform: translateX(-100%); /* escondida inicialmente */
+  transition: transform 0.3s ease;
+  z-index: 1002; /* acima do overlay */
+  overflow-y: auto; /* caso tenha muitas opções */
+  padding: 20px;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1001; /* abaixo da sidebar (1002) */
+}
+
+
+/* ==== RESPONSIVIDADE ==== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  } */
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
 
 /* --- CONTEÚDO PRINCIPAL (Main Content) --- */
 .main-content {

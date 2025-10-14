@@ -128,10 +128,6 @@ function fmtMoney($v) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 
 </head>
-<body id="rel-body">
-      <button class="hamburger">
-    <i class="fas fa-bars"></i>
-  </button>
     <div class="container-relatorio">
 
 <?php include 'sidebar.php'; ?>

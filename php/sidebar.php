@@ -4,23 +4,26 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 ?>
 
+<button class="hamburger" id="hamburger-btn">
+    <i class="fas fa-bars"></i>
+</button>
 <aside class="sidebar">
     <div class="logo">
         <span class="logo-text">LumiStock</span>
     </div>
 
-    
-<div class="user-profile">
-    <?php if (!empty($_SESSION['imagem_perfil'])): ?>
-        <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
-    <?php else: ?>
-        <div class="avatar-placeholder"><?= strtoupper(substr($_SESSION['nome'], 0, 2)); ?></div>
-    <?php endif; ?>
-    <div class="user-info">
-        <span class="user-name"><?= htmlspecialchars($_SESSION['nome']); ?></span>
-        <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
+
+    <div class="user-profile">
+        <?php if (!empty($_SESSION['imagem_perfil'])): ?>
+            <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
+        <?php else: ?>
+            <div class="avatar-placeholder"><?= strtoupper(substr($_SESSION['nome'], 0, 2)); ?></div>
+        <?php endif; ?>
+        <div class="user-info">
+            <span class="user-name"><?= htmlspecialchars($_SESSION['nome']); ?></span>
+            <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
+        </div>
     </div>
-</div>
 
 
     <nav class="nav-menu">
@@ -40,28 +43,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 </aside>
 
 
-    <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
-    <script>
-        (function(){
-            var candidates = [
-                'js/script.js',        // quando a página está na raiz do projeto
-                '../js/script.js',     // quando a página está dentro de php/ (ex: php/dashboard.php)
-                '/lumi_stock/js/script.js', // caminho absoluto esperado no ambiente local (ajuste se necessário)
-            ];
+<!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
 
-            function tryLoad(list, idx){
-                if(idx >= list.length) return; // nenhum deu certo
-                var s = document.createElement('script');
-                s.src = list[idx];
-                s.onload = function(){ console.log('script carregado:', list[idx]); };
-                s.onerror = function(){
-                    // remove o script com src inválido e tenta o próximo
-                    s.parentNode && s.parentNode.removeChild(s);
-                    tryLoad(list, idx+1);
-                };
-                document.head.appendChild(s);
-            }
 
-            tryLoad(candidates, 0);
-        })();
-    </script>
+<script src="../js/script.js"></script>
