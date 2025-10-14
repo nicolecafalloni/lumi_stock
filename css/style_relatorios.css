@@ -289,14 +289,93 @@ canvas#rel-chart-categoria {
 
 
 /* responsividade */
-@media (max-width: 900px) {
-  .rel-filtros-form .rel-row { grid-template-columns: repeat(2, 1fr); }
-  .rel-grid-4 { grid-template-columns: repeat(2,1fr); }
-  .rel-grid-2 { grid-template-columns: 1fr; }
-  .rel-header-container { flex-direction:column; gap:10px; align-items:flex-start; }
+@media (max-width: 1200px) {
+    /* Diminui padding lateral do header para aproveitar melhor o espaço */
+    .rel-header-blue {
+        padding: 20px 20px;
+    }
 }
 
+
+/* Tablet (Max 900px) */
+@media (max-width: 900px) {
+    /* 1. FILTROS: 5 colunas -> 2 colunas */
+    .rel-filtros-form .rel-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* 2. RESUMO (GRID-4): 4 colunas -> 2 colunas */
+    .rel-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* 3. GRÁFICOS (GRID-2): 2 colunas -> 1 coluna (empilha) */
+    .rel-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 4. HEADER: Empilha o conteúdo (título e botão de exportar) */
+    .rel-header-blue {
+        height: auto; /* Permite que o header se ajuste ao novo conteúdo */
+        padding: 20px;
+    }
+    .rel-header-container {
+        flex-direction: column;
+        gap: 15px; /* Aumenta um pouco o espaçamento entre os blocos */
+        align-items: flex-start;
+    }
+    
+    /* 5. EXPORTAR: Empilha título e botões (se for necessário) */
+    .rel-export {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* Smartphone (Max 600px) */
+@media (max-width: 600px) {
+    /* 1. FILTROS: 2 colunas -> 1 coluna (empilha tudo) */
+    .rel-filtros-form .rel-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 2. RESUMO (GRID-4): 2 colunas -> 1 coluna (para caber em telas estreitas) */
+    .rel-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* 3. TÍTULO: Reduz o tamanho da fonte do título principal */
+    .rel-header h1 {
+        font-size: 20px;
+    }
+    .rel-header-icon {
+        font-size: 28px;
+    }
+    
+    /* 4. BOTÕES DE EXPORTAÇÃO: Empilha os botões */
+    .rel-export-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .rel-export-buttons > .rel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center; /* Centraliza texto nos botões */
+    }
+}
+
+/* Smartphone Extra Pequeno (Max 480px - Regra já existente) */
+/* Mantive a regra de 480px original, mas o 600px já cobre a maioria dos casos. */
 @media (max-width: 480px) {
-  .rel-filtros-form .rel-row { grid-template-columns: 1fr; }
-  .rel-card-summary { padding:12px; }
+    .rel-card-summary { padding:12px; }
+    .container-relatorio{
+        margin-left: 0;
+    }
+
+    .rel-card{
+        max-width: 100%;
+        width: 374px;
+    }
+    /* Não há necessidade de repetir .rel-filtros-form .rel-row { grid-template-columns: 1fr; } */
 }
