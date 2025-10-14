@@ -501,7 +501,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" class="btn-secondary" id="cancelModalBtn">Cancelar</button>
+                        
                         <button type="submit" class="btn-primary confirm-btn">Confirmar Movimentação</button>
                     </div>
                 </form>

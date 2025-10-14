@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.remove('menu-open');
     }
   }
-
+  });
   hamburger.addEventListener('click', toggleSidebar);
 
   // Fechar ao clicar fora (opcional, UX comum)

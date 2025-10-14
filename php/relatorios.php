@@ -294,7 +294,7 @@ const REL_CATEGORIA_SUMS = <?= json_encode($categoriaSums, JSON_HEX_TAG|JSON_HEX
 const REL_TOP_PRODUTOS = <?= json_encode($topProdutos, JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) ?>;
 </script>
 
-<script src="../js/script_relatorios.js"></script>
+<script src="../js/script_relatorios.js" defer></script>
 <script src="../js/script.js"></script>
 </div>
 </body>
