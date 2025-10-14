@@ -90,6 +90,9 @@ if (isset($_POST['atualizar_imagem']) && isset($_FILES['imagem']) && $_FILES['im
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
     <div class="container-editar-perfil">
         <?php include 'sidebar.php'; ?>
 
@@ -188,6 +191,6 @@ if (isset($_POST['atualizar_imagem']) && isset($_FILES['imagem']) && $_FILES['im
 
     </main>
 </div>
-
+<script src="../js/script.js"></script>
 </body>
 </html>

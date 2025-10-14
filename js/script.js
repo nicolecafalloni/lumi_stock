@@ -103,5 +103,25 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     });
-});
+      // Ajusta quando a tela é redimensionada (remove inline style se voltar para desktop)
+  window.addEventListener('resize', () => {
+    if (!isMobileView()) {
+      sidebar.classList.remove('active');
+      sidebar.style.transform = '';
+      body.classList.remove('menu-open');
+    } else {
+      // se no mobile e ainda sem classe active, garante que esteja escondida
+      if (!sidebar.classList.contains('active')) {
+        sidebar.style.transform = 'translateX(-110%)';
+      }
+    }
+  });
 
+  // Inicial: forçar estado correto ao carregar
+  if (isMobileView()) {
+    sidebar.classList.remove('active');
+    sidebar.style.transform = 'translateX(-110%)';
+  } else {
+    sidebar.style.transform = '';
+  }
+});

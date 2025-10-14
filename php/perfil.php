@@ -55,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
 </head>
 <body>
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
 <div class="container">
     <?php include 'sidebar.php'; ?>
 
