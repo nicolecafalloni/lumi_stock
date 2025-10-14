@@ -44,6 +44,3 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 
 <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
-
-
-<script src="../js/script.js"></script>

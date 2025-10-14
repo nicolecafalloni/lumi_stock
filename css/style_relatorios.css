@@ -278,7 +278,7 @@ canvas#rel-chart-categoria {
 .rel-baixo { background:#fff6e6; color:#b46a00; }
 .rel-normal { background:#e9fff0; color:#0a8a3d; }
 
-.container-relatorio { margin-left:280px; transition:margin-left 0.3s ease; }
+.container-relatorio { margin-left:240px; transition:margin-left 0.3s ease; }
 
 /* #rel-resumo,
 #rel-graficos,

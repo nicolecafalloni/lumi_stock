@@ -206,7 +206,6 @@
   cursor: pointer;
   font-size: 20px;
   transition: all 0.3s ease;
-  z-index: 1003;
 }
 
 .hamburger:hover {
@@ -217,25 +216,26 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: var(--primary-color); /* fundo da sidebar */
-  color: #ecf0f1; /* cor do texto */
+  background-color: var(--primary-color);
+  color: #ecf0f1;
   position: fixed;
+  display: block;
   top: 0;
-  left: 0; /* garante que fique na borda esquerda */
-  transform: translateX(-100%); /* escondida inicialmente */
-  transition: transform 0.3s ease;
-  z-index: 1002; /* acima do overlay */
-  overflow-y: auto; /* caso tenha muitas opções */
-  padding: 20px;
+  left: 0;
+  transform: translateX(0);
+  z-index: 1002;
 }
 
 .sidebar-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
-  z-index: 1001; /* abaixo da sidebar (1002) */
+  z-index: 1000; /* abaixo do .hamburger (1001) e abaixo da sidebar (1000) ajuste se necessário */
 }
 
+.sidebar.active {
+  transform: translateX(0);
+}
 
 /* ==== RESPONSIVIDADE ==== */
 @media (max-width: 768px) {
@@ -243,13 +243,13 @@
     display: block;
   }
 
-  /* .sidebar {
+  .sidebar {
     transform: translateX(-100%);
   }
 
   .sidebar.active {
     transform: translateX(0);
-  } */
+  }
 
   body.menu-open {
     overflow: hidden;
