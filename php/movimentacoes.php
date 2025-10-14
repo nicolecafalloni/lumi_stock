@@ -147,7 +147,11 @@ $conexao->close();
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/movimentacao.css">
+
      <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
     <title>LumiStock - Movimentações</title>
     <style>
         .badge-entrada { background-color: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
@@ -167,7 +171,7 @@ $conexao->close();
     </style>
 </head>
 <body>
-    
+    <?php include "sidebar.php"; ?>
     <?php if ($error_message): ?>
         <div class="alert-error" role="alert">
             <i class="fas fa-exclamation-triangle"></i> Erro: <?php echo htmlspecialchars($error_message); ?>
@@ -182,7 +186,7 @@ $conexao->close();
         </div>
     <?php endif; ?>
 
-    
+
    <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -245,6 +249,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             tryLoad(candidates, 0);
         })();
     </script>
+
     <main class="main-content">
         <header class="page-header">
             <div class="header-content">
