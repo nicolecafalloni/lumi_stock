@@ -188,6 +188,6 @@ if (isset($_POST['atualizar_imagem']) && isset($_FILES['imagem']) && $_FILES['im
 
     </main>
 </div>
-
+<script src="../js/script.js"></script>
 </body>
 </html>

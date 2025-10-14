@@ -522,5 +522,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             }
         }
     </script>
+<script src="../js/script.js"></script>
 </body>
 </html>
