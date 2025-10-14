@@ -9,13 +9,19 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <span class="logo-text">LumiStock</span>
     </div>
 
-    <div class="user-profile">
-        <img src="placeholder-avatar.png" alt="Avatar de <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); ?>" class="avatar">
-        <div class="user-info">
-            <span class="user-name"><?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); ?></span>
-            <span class="user-email"><?= htmlspecialchars($_SESSION['email'] ?? 'email@exemplo.com'); ?></span>
-        </div>
+    
+<div class="user-profile">
+    <?php if (!empty($_SESSION['imagem_perfil'])): ?>
+        <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
+    <?php else: ?>
+        <div class="avatar-placeholder"><?= strtoupper(substr($_SESSION['nome'], 0, 2)); ?></div>
+    <?php endif; ?>
+    <div class="user-info">
+        <span class="user-name"><?= htmlspecialchars($_SESSION['nome']); ?></span>
+        <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
     </div>
+</div>
+
 
     <nav class="nav-menu">
         <ul>

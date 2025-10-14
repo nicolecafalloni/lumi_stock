@@ -61,9 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="main-content">
         <header class="perfil-header">
             <div class="perfil-avatar">
-                <span><?= strtoupper(substr($usuario['nome'], 0, 2)); ?></span>
-                <span class="status"></span>
-            </div>
+    <?php if (!empty($usuario['imagem_perfil'])): ?>
+        <?php $base64 = base64_encode($usuario['imagem_perfil']); ?>
+        <img src="data:image/jpeg;base64,<?= $base64 ?>" alt="Foto de perfil" class="avatar-img">
+    <?php else: ?>
+        <span><?= strtoupper(substr($usuario['nome'], 0, 2)); ?></span>
+    <?php endif; ?>
+    <span class="status"></span>
+</div>
+
             <div class="perfil-info">
                 <h1><?= htmlspecialchars($usuario['nome']); ?></h1>
                 <p><?= htmlspecialchars($usuario['email']); ?></p>
@@ -111,14 +117,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="coluna-direita">
                 <div class="card nivel-acesso">
                     <h2>Nível de Acesso</h2>
-                    <p><strong>Acesso Total:</strong> Você tem permissão completa para gerenciar todos os aspectos do sistema.</p>
+                    <div class="acesso-total-permi" >
+                        <h3>Acesso Total:</h3>
+                        <p>Você tem permissão completa para gerenciar todos os aspectos do sistema, incluindo produtos, movimentações e usuários</p>
+                    </div>
+
+                    <h2>Permissões</h2>
                     <ul class="permissoes">
-                        <li>Visualizar produtos</li>
-                        <li>Criar e editar produtos</li>
-                        <li>Excluir produtos</li>
-                        <li>Registrar movimentações</li>
-                        <li>Excluir movimentações</li>
-                        <li>Gerar relatórios</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm">Visualizar produtos</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm" >Criar e editar produtos</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm" >Excluir produtos</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm" >Registrar movimentações</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm" >Excluir movimentações</li>
+                        <li><img src="../img/icone-correto-removebg-preview.png" class="icone-perm" >Gerar relatórios</li>
                     </ul>
                 </div>
 
