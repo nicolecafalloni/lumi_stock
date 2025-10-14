@@ -4,24 +4,27 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 ?>
 
-<aside class="sidebar">
+<!-- Botão hambúrguer (visível no mobile) -->
+<button class="hamburger" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+</button>
+
+<aside class="sidebar" id="sidebar">
     <div class="logo">
         <span class="logo-text">LumiStock</span>
     </div>
 
-    
-<div class="user-profile">
-    <?php if (!empty($_SESSION['imagem_perfil'])): ?>
-        <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
-    <?php else: ?>
-        <div class="avatar-placeholder"><?= strtoupper(substr($_SESSION['nome'], 0, 2)); ?></div>
-    <?php endif; ?>
-    <div class="user-info">
-        <span class="user-name"><?= htmlspecialchars($_SESSION['nome']); ?></span>
-        <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
+    <div class="user-profile">
+        <?php if (!empty($_SESSION['imagem_perfil'])): ?>
+            <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
+        <?php else: ?>
+            <div class="avatar-placeholder"><?= strtoupper(substr($_SESSION['nome'], 0, 2)); ?></div>
+        <?php endif; ?>
+        <div class="user-info">
+            <span class="user-name"><?= htmlspecialchars($_SESSION['nome']); ?></span>
+            <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
+        </div>
     </div>
-</div>
-
 
     <nav class="nav-menu">
         <ul>
@@ -39,29 +42,34 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     </div>
 </aside>
 
+<script>
+(function(){
+    var candidates = [
+        'js/script.js',
+        '../js/script.js',
+        '/lumi_stock/js/script.js'
+    ];
 
-    <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
-    <script>
-        (function(){
-            var candidates = [
-                'js/script.js',        // quando a página está na raiz do projeto
-                '../js/script.js',     // quando a página está dentro de php/ (ex: php/dashboard.php)
-                '/lumi_stock/js/script.js', // caminho absoluto esperado no ambiente local (ajuste se necessário)
-            ];
+    function tryLoad(list, idx){
+        if(idx >= list.length) return;
+        var s = document.createElement('script');
+        s.src = list[idx];
+        s.onload = function(){ console.log('script carregado:', list[idx]); };
+        s.onerror = function(){
+            s.parentNode && s.parentNode.removeChild(s);
+            tryLoad(list, idx+1);
+        };
+        document.head.appendChild(s);
+    }
+    tryLoad(candidates, 0);
+})();
 
-            function tryLoad(list, idx){
-                if(idx >= list.length) return; // nenhum deu certo
-                var s = document.createElement('script');
-                s.src = list[idx];
-                s.onload = function(){ console.log('script carregado:', list[idx]); };
-                s.onerror = function(){
-                    // remove o script com src inválido e tenta o próximo
-                    s.parentNode && s.parentNode.removeChild(s);
-                    tryLoad(list, idx+1);
-                };
-                document.head.appendChild(s);
-            }
+// Função do botão hamburguer
+const btn = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
 
-            tryLoad(candidates, 0);
-        })();
-    </script>
+btn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+});
+</script>
