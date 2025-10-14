@@ -35,12 +35,6 @@
     font-family: "Roboto", sans-serif;
 }
 
-.swal2-title,
-.swal2-html-container,
-.swal2-confirm {
-    font-family: 'Poppins', sans-serif !important;
-}
-
 .body-dashboard {
     background-color: #e9ecef;
     color: var(--text-color);
