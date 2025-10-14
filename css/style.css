@@ -1729,6 +1729,211 @@ input[type="file"].input-foto-editar-perfil {
     cursor: pointer;
 }
 
+/* ============================= */
+/* RESPONSIVIDADE - PERFIL E EDITAR PERFIL */
+/* ============================= */
+
+/* --- Telas até 1024px (notebooks pequenos e tablets na horizontal) --- */
+@media (max-width: 1024px) {
+
+    .main-content,
+    .main-content-editar-perfil {
+        padding: 25px;
+        margin-left: 240px;
+    }
+
+    .perfil-body,
+    .perfil-body-editar-perfil {
+        flex-direction: column;
+    }
+
+    .coluna-esquerda,
+    .coluna-direita,
+    .coluna-esquerda-editar-perfil,
+    .coluna-direita-editar-perfil {
+        width: 100%;
+    }
+
+    .perfil-header,
+    .perfil-header-editar-perfil {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .perfil-avatar,
+    .perfil-avatar-editar-perfil {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .perfil-info,
+    .perfil-info-editar-perfil {
+        width: 100%;
+    }
+
+    .botoes-editar-perfil {
+        justify-content: center;
+    }
+}
+
+/* --- Telas até 768px (tablets e celulares grandes) --- */
+@media (max-width: 768px) {
+
+    .container,
+    .container-editar-perfil {
+        flex-direction: column;
+    }
+
+    .main-content,
+    .main-content-editar-perfil {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .perfil-header,
+    .perfil-header-editar-perfil {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .perfil-avatar,
+    .perfil-avatar-editar-perfil {
+        width: 70px;
+        height: 70px;
+        font-size: 22px;
+    }
+
+    .perfil-info h1,
+    .perfil-info-editar-perfil h1 {
+        font-size: 20px;
+    }
+
+    .perfil-info p,
+    .perfil-info-editar-perfil p {
+        font-size: 14px;
+    }
+
+    .card,
+    .card-editar-perfil {
+        padding: 20px;
+    }
+
+    .btn-primary,
+    .btn-primary-editar-perfil,
+    .btn-cancelar-editar-perfil {
+        padding: 12px 40px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .btn-vermelho,
+    .btn-vermelho-editar-perfil {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+
+    .perfil-foto-editar-perfil {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upload-label {
+        width: 100%;
+        text-align: center;
+    }
+
+    .botoes-editar-perfil {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .icone-perm {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+}
+
+/* --- Telas até 480px (celulares pequenos) --- */
+@media (max-width: 480px) {
+
+    .perfil-header,
+    .perfil-header-editar-perfil {
+        padding: 16px;
+    }
+
+    .perfil-avatar,
+    .perfil-avatar-editar-perfil {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .perfil-info h1,
+    .perfil-info-editar-perfil h1 {
+        font-size: 18px;
+    }
+
+    .perfil-info p,
+    .perfil-info-editar-perfil p {
+        font-size: 13px;
+    }
+
+    .card h2,
+    .card-editar-perfil h2 {
+        font-size: 18px;
+    }
+
+    .card,
+    .card-editar-perfil {
+        padding: 18px;
+    }
+
+    .info-pessoal p,
+    .info-pessoal-editar-perfil p {
+        font-size: 13px;
+    }
+
+    .btn-primary,
+    .btn-primary-editar-perfil,
+    .btn-cancelar-editar-perfil {
+        padding: 10px 24px;
+        font-size: 13px;
+    }
+
+    .btn-vermelho,
+    .btn-vermelho-editar-perfil {
+        padding: 8px 24px;
+        font-size: 13px;
+    }
+
+    .botoes-editar-perfil {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .dicas-senha,
+    .dicas-senha-editar-perfil {
+        font-size: 13px;
+        padding: 12px;
+    }
+
+    .perfil-foto-editar-perfil {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .upload-label {
+        width: 100%;
+        font-size: 13px;
+        padding: 8px 18px;
+    }
+}
 
 
 
