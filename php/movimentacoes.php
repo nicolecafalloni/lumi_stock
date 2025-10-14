@@ -21,6 +21,62 @@ $filtro_usuario = isset($_GET['usuario']) ? $conexao->real_escape_string($_GET['
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'new_movement') {
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'new_movement') {
+    $movType = $conexao->real_escape_string($_POST['movType']);
+    $movDate = $conexao->real_escape_string($_POST['movDate']);
+    $product_id = (int)$_POST['productSelect'];
+    $quantity = (int)$_POST['quantity'];
+    $observations = $conexao->real_escape_string($_POST['observations']);
+
+    // 1️⃣ Pega o estoque atual do produto
+    $estoque_atual = 0;
+    $sql_estoque = "SELECT quantidade FROM produtos WHERE id = ?";
+    if ($stmt_estoque = $conexao->prepare($sql_estoque)) {
+        $stmt_estoque->bind_param("i", $product_id);
+        $stmt_estoque->execute();
+        $stmt_estoque->bind_result($estoque_atual);
+        $stmt_estoque->fetch();
+        $stmt_estoque->close();
+    }
+
+    // 2️⃣ Atualiza o estoque conforme o tipo
+    if ($movType === 'entrada') {
+        $novo_estoque = $estoque_atual + $quantity;
+    } elseif ($movType === 'saida') {
+        if ($quantity > $estoque_atual) {
+            $error_message = "Erro: Quantidade de saída maior que o estoque disponível.";
+        } else {
+            $novo_estoque = $estoque_atual - $quantity;
+        }
+    }
+
+    // 3️⃣ Só prossegue se não houver erro
+    if (!$error_message) {
+        $sql_update_produto = "UPDATE produtos SET quantidade = ? WHERE id = ?";
+        if ($stmt_update = $conexao->prepare($sql_update_produto)) {
+            $stmt_update->bind_param("ii", $novo_estoque, $product_id);
+            $stmt_update->execute();
+            $stmt_update->close();
+        }
+
+        // 4️⃣ Registra a movimentação na tabela
+        $sql_insert = "INSERT INTO movimentacoes (data_movimentacao, tipo, produto_id, quantidade, usuario_email, observacoes) 
+                       VALUES (?, ?, ?, ?, ?, ?)";
+        
+        if ($stmt = $conexao->prepare($sql_insert)) {
+            $stmt->bind_param("ssiiss", $movDate, $movType, $product_id, $quantity, $email_logado, $observations);
+            if ($stmt->execute()) {
+                $status_success = true;
+            } else {
+                $error_message = "ERRO ao registrar movimentação: " . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $error_message = "ERRO de preparação da query de inserção: " . $conexao->error;
+        }
+    }
+}
+
     $movType = $conexao->real_escape_string($_POST['movType']);
     $movDate = $conexao->real_escape_string($_POST['movDate']);
     $product_id = (int)$_POST['productSelect'];

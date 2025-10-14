@@ -135,6 +135,7 @@ function fmtMoney($v) {
     <div class="container-relatorio">
 
 <?php include 'sidebar.php'; ?>
+
 <header id="rel-header" class="rel-header-blue">
     <div class="rel-header-container">
         <div class="rel-header-left">
