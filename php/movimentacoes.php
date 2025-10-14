@@ -147,6 +147,7 @@ $conexao->close();
     <link rel="icon" type="image/jpg" href="../img/icon-logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/movimentacao.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>LumiStock - Movimentações</title>
     <style>
         .badge-entrada { background-color: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
@@ -166,7 +167,7 @@ $conexao->close();
     </style>
 </head>
 <body>
-    
+    <?php include "sidebar.php"; ?>
     <?php if ($error_message): ?>
         <div class="alert-error" role="alert">
             <i class="fas fa-exclamation-triangle"></i> Erro: <?php echo htmlspecialchars($error_message); ?>
@@ -180,30 +181,6 @@ $conexao->close();
             <i class="fas fa-check-circle"></i> Movimentação excluída com sucesso!
         </div>
     <?php endif; ?>
-
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <i class="fas fa-boxes logo-icon"></i>
-            <span class="logo-text">LumiStock</span>
-        </div>
-        <div class="user-info">
-            <img src="https://via.placeholder.com/40" alt="Avatar" class="user-avatar">
-            <div class="user-details">
-                <span class="user-name"><?php echo htmlspecialchars($usuario_logado); ?></span>
-                <span class="user-email"><?php echo htmlspecialchars($email_logado); ?></span>
-            </div>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
-                <li class="active"><a href="movimentacoes.php"><i class="fas fa-exchange-alt"></i> Movimentações</a></li>
-                <li><a href="#"><i class="fas fa-box"></i> Produtos</a></li>
-                <li><a href="#"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
-                <hr>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
-            </ul>
-        </nav>
-    </aside>
 
     <main class="main-content">
         <header class="page-header">
