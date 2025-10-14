@@ -135,7 +135,7 @@ function fmtMoney($v) {
 <header id="rel-header" class="rel-header-blue">
     <div class="rel-header-container">
         <div class="rel-header-left">
-            <img src="https://cdn-user-icons.flaticon.com/201298/201298730/1760366393715.svg?token=exp=1760367420~hmac=9a5130287315fb56c4dcae0564422578" alt="">
+            <img src="../img/relatorio.png" alt="">
             <div>
                 <h1>Relatórios de Estoque</h1>
                 <p class="rel-subtitle">Visualize e exporte relatórios detalhados do seu estoque</p>
