@@ -171,6 +171,9 @@ $conexao->close();
     </style>
 </head>
 <body>
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
     <?php include "sidebar.php"; ?>
     <?php if ($error_message): ?>
         <div class="alert-error" role="alert">

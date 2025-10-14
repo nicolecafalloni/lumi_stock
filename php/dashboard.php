@@ -137,6 +137,9 @@ $quantidadeBaixoEstoque = $baixoEstoque['baixo_estoque'] ?? 0;
     </style>
 </head>
 <body class="body-dashboard">
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
     <div class="container">
         <?php include 'sidebar.php'; ?>
 

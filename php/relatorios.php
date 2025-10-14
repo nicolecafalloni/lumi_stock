@@ -129,6 +129,9 @@ function fmtMoney($v) {
 
 </head>
 <body id="rel-body">
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
     <div class="container-relatorio">
 
 <?php include 'sidebar.php'; ?>

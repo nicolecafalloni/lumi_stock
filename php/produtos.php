@@ -18,6 +18,9 @@ include 'verifica_sessao.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
 <div class="dashboard-container">
     <?php include 'sidebar.php'; ?>
 
