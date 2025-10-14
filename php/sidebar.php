@@ -10,10 +10,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 </button>
 
 <aside class="sidebar" id="sidebar">
-    <div class="logo">
-        <span class="logo-text">LumiStock</span>
-    </div>
-
+   <div class="logo">
+    <a href="dashboard.php">
+        <img src="../img/logooo.png" alt="LumiStock" class="logo-img">
+    </a>
+</div>
     <div class="user-profile">
         <?php if (!empty($_SESSION['imagem_perfil'])): ?>
             <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
