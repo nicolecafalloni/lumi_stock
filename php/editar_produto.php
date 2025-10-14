@@ -57,6 +57,9 @@ $produto = $result->fetch_assoc();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+      <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
 <div class="container-editar">
     <h1>Editar Produto</h1>
     <form action="" method="POST" enctype="multipart/form-data" class="form-editar">

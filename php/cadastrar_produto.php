@@ -129,6 +129,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 ?>
 
+  <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
+
 <aside class="sidebar">
     <div class="logo">
         <span class="logo-text">LumiStock</span>
@@ -187,7 +191,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     </script>
     <main class="main-content">
     <header class="page-header">
-        <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+        <a href="dashboard.php"><button class="back-btn"><i class="fas fa-arrow-left"></i></button></a>
         <div class="titulo-produto">
             <h1>Novo Produto</h1>
             <p>Cadastre um novo produto no estoque</p>
@@ -321,6 +325,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const body = document.body;
+
+  if (!hamburger || !sidebar) {
+    console.warn('Hamburger ou sidebar não encontrados no DOM.');
+    return;
+  }
+
+  // Função que verifica largura atual e aplica comportamento esperado:
+  function isMobileView() {
+    return window.matchMedia('(max-width: 719px)').matches;
+  }
+
+  // Toggle: adiciona/remova classe e também aplica inline transform como fallback
+  function toggleSidebar() {
+    sidebar.classList.toggle('active');
+
+    const open = sidebar.classList.contains('active');
+
+    // Fallback direto via style se houver override no CSS
+    if (isMobileView()) {
+      if (open) {
+        sidebar.style.transform = 'translateX(0)';
+        body.classList.add('menu-open'); // bloqueia scroll do body
+      } else {
+        sidebar.style.transform = 'translateX(-110%)';
+        body.classList.remove('menu-open');
+      }
+    } else {
+      // Em desktop, garantir estilo padrão (remova fallback inline)
+      sidebar.style.transform = '';
+      body.classList.remove('menu-open');
+    }
+  }
+  });
+  hamburger.addEventListener('click', toggleSidebar);
+
+  // Fechar ao clicar fora (opcional, UX comum)
+  document.addEventListener('click', (e) => {
+    if (!isMobileView()) return;
+    const target = e.target;
+    if (sidebar.classList.contains('active')) {
+      // Se clicou fora da sidebar e fora do hamburguer, fechar
+      if (!sidebar.contains(target) && !hamburger.contains(target)) {
+        sidebar.classList.remove('active');
+        sidebar.style.transform = 'translateX(-110%)';
+        body.classList.remove('menu-open');
+      }
+    }
+  });
 </script>
 <script src="../js/script.js"></script>
 </body>
