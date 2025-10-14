@@ -186,20 +186,20 @@ $quantidadeBaixoEstoque = $baixoEstoque['baixo_estoque'] ?? 0;
             <section class="shortcuts-grid">
                 <div class="card shortcut-card card-products">
                     <i class="fas fa-boxes"></i>
-                    <a href="produtos.php">Produtos</a>
+                    <a href="../php/produtos.php">Produtos</a>
                     <p class="shortcut-description">Cadastre e gerencie seus produtos</p>
                 </div>
 
                 <div class="card shortcut-card card-exits">
                     <i class="fas fa-box-open"></i>
-                    <a href="movimentacoes.php">Movimentações</a>
+                    <a href="../php/movimentacoes.php">Movimentações</a>
                     <p class="shortcut-description">Gerenciar entradas e saídas de produtos</p>
                 </div>
 
                 <div class="card shortcut-card card-reports">
 
                     <i class="fas fa-clipboard-list"></i>
-                    <a href="relatorios.php">Relatórios</a>
+                    <a href="../php/relatorios.php">Relatórios</a>
                     <p class="shortcut-description">Visualizar relatórios completos do estoque</p>
                 </div>
             </section>

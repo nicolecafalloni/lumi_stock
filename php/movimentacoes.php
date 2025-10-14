@@ -235,14 +235,25 @@ $conexao->close();
         <div class="alert-error" role="alert">
             <i class="fas fa-exclamation-triangle"></i> Erro: <?php echo htmlspecialchars($error_message); ?>
         </div>
-    <?php elseif ($status_success): ?>
-        <div class="alert-success" role="alert">
-            <i class="fas fa-check-circle"></i> Movimentação registrada com sucesso!
-        </div>
-    <?php elseif (isset($_GET['status']) && $_GET['status'] == 'deleted'): ?>
-        <div class="alert-success" role="alert">
-            <i class="fas fa-check-circle"></i> Movimentação excluída com sucesso!
-        </div>
+   <?php if ($status_success): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'Movimentação registrada com sucesso!',
+            confirmButtonColor: '#004AAD'
+        });
+    </script>
+<?php elseif (isset($_GET['status']) && $_GET['status'] == 'deleted'): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'Movimentação excluída com sucesso!',
+            confirmButtonColor: '#004AAD'
+        });
+    </script>
+<?php endif; ?>
     <?php endif; ?>
 
 
@@ -581,6 +592,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="../js/script.js"></script>
 </body>
 </html>

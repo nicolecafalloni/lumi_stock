@@ -41,6 +41,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     <div class="logout-btn">
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
+    
 </aside>
 
 <script>
