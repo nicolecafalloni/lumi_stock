@@ -89,6 +89,18 @@
     font-size: 0.8rem;
     opacity: 0.7;
 }
+.logo-img {
+    width: 160px; /* ajusta o tamanho da logo */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* centraliza horizontalmente e dá margem embaixo */
+}
+@media (max-width: 719px) {
+    .logo-img {
+        width: 120px; /* menor no mobile */
+    }
+}
+
 
 /* ======== MENU DE NAVEGAÇÃO ======== */
 .nav-menu {

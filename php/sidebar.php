@@ -12,7 +12,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <span class="logo-text">LumiStock</span>
     </div>
 
-
     <div class="user-profile">
         <?php if (!empty($_SESSION['imagem_perfil'])): ?>
             <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
@@ -24,7 +23,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47763a5d206c1cc6fd9d22a8238d12c792a6e1a4
 
     <nav class="nav-menu">
         <ul>
@@ -42,5 +44,38 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     </div>
 </aside>
 
+<script>
+(function(){
+    var candidates = [
+        'js/script.js',
+        '../js/script.js',
+        '/lumi_stock/js/script.js'
+    ];
 
+<<<<<<< HEAD
 <!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
+=======
+    function tryLoad(list, idx){
+        if(idx >= list.length) return;
+        var s = document.createElement('script');
+        s.src = list[idx];
+        s.onload = function(){ console.log('script carregado:', list[idx]); };
+        s.onerror = function(){
+            s.parentNode && s.parentNode.removeChild(s);
+            tryLoad(list, idx+1);
+        };
+        document.head.appendChild(s);
+    }
+    tryLoad(candidates, 0);
+})();
+
+// Função do botão hamburguer
+const btn = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+
+btn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+});
+</script>
+>>>>>>> 47763a5d206c1cc6fd9d22a8238d12c792a6e1a4
