@@ -4,17 +4,14 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 ?>
 
-<!-- Botão hambúrguer (visível no mobile) -->
-<button class="hamburger" id="menu-toggle">
+<button class="hamburger" id="hamburger-btn">
     <i class="fas fa-bars"></i>
 </button>
+<aside class="sidebar">
+    <div class="logo">
+        <span class="logo-text">LumiStock</span>
+    </div>
 
-<aside class="sidebar" id="sidebar">
-   <div class="logo">
-    <a href="dashboard.php">
-        <img src="../img/logooo.png" alt="LumiStock" class="logo-img">
-    </a>
-</div>
     <div class="user-profile">
         <?php if (!empty($_SESSION['imagem_perfil'])): ?>
             <img src="data:image/jpeg;base64,<?= $_SESSION['imagem_perfil'] ?>" alt="Avatar" class="avatar">
@@ -52,6 +49,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         '/lumi_stock/js/script.js'
     ];
 
+
     function tryLoad(list, idx){
         if(idx >= list.length) return;
         var s = document.createElement('script');
@@ -75,3 +73,4 @@ btn.addEventListener('click', () => {
     document.body.classList.toggle('menu-open');
 });
 </script>
+
