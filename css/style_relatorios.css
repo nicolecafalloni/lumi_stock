@@ -1,7 +1,13 @@
 /* style_relatorios.css - prefixo rel- para evitar conflitos */
 
 /* reset básico */
-#rel-body { font-family: Inter, Arial, sans-serif; background:#f4f6fa; color:#222; margin:0; padding:0; }
+#rel-body { 
+    font-family: Inter, Arial, sans-serif; 
+    background:#f4f6fa; 
+    color:#222; 
+    margin:0; 
+    padding:0; 
+}
 
 /* header */
 /* Header azul */
@@ -11,6 +17,7 @@
     padding: 20px 40px;
     height: 202px;;
     display: flex;
+    margin-top: 0;
 }
 
 .rel-header-container {
@@ -278,7 +285,12 @@ canvas#rel-chart-categoria {
 .rel-baixo { background:#fff6e6; color:#b46a00; }
 .rel-normal { background:#e9fff0; color:#0a8a3d; }
 
-.container-relatorio { margin-left:240px; transition:margin-left 0.3s ease; }
+.container-relatorio { 
+    margin-left:250px; 
+    transition:margin-left 0.3s ease; 
+    position: relative; /* Opcional, mas útil para o fluxo */
+    margin-top: 0;      
+}
 
 /* #rel-resumo,
 #rel-graficos,

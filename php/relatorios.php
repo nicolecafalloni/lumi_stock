@@ -128,9 +128,10 @@ function fmtMoney($v) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 
 </head>
+<?php include 'sidebar.php'; ?>
     <div class="container-relatorio">
 
-<?php include 'sidebar.php'; ?>
+
 
 <header id="rel-header" class="rel-header-blue">
     <div class="rel-header-container">

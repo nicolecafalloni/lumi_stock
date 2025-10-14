@@ -23,10 +23,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             <span class="user-email"><?= htmlspecialchars($_SESSION['email']); ?></span>
         </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 47763a5d206c1cc6fd9d22a8238d12c792a6e1a4
 
     <nav class="nav-menu">
         <ul>
@@ -52,9 +48,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         '/lumi_stock/js/script.js'
     ];
 
-<<<<<<< HEAD
-<!-- Carregador resiliente para js/script.js: tenta caminhos relativos comuns para funcionar quando a sidebar é incluída de subpastas -->
-=======
+
     function tryLoad(list, idx){
         if(idx >= list.length) return;
         var s = document.createElement('script');
@@ -78,4 +72,4 @@ btn.addEventListener('click', () => {
     document.body.classList.toggle('menu-open');
 });
 </script>
->>>>>>> 47763a5d206c1cc6fd9d22a8238d12c792a6e1a4
+>
